@@ -1,0 +1,73 @@
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+venv*/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Logs
+logs/
+*.log
+*.log.*
+dag_processor/
+spark-events/
+
+# Docker & Volumes
+postgres-db-volume/
+minio-data-volume/
+dremio-data-volume/
+spark-master-*
+spark-worker-*
+
+# Build & Artifacts
+*.lock
+jars/
+
+# Project-specific
+dbt_packages/
+target/
+dbt-manifest.json
+catalog-debug.json
