@@ -232,6 +232,8 @@ services:
     container_name: dremio
     environment:
       TZ: ${TZ}
+      DREMIO_COORDINATOR_MEMORY: ${DREMIO_COORDINATOR_MEMORY}
+      DREMIO_EXECUTOR_MEMORY: ${DREMIO_EXECUTOR_MEMORY}
     ports:
       - "${DREMIO_PORT}:9047"
       - "31010:31010"
