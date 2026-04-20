@@ -1,6 +1,6 @@
 # Nessie + Dremio + Spark Cluster
 
-Complete data lakehouse platform combining Apache Spark, Project Nessie (versioned metadata), Apache Iceberg (ACID tables), Dremio (SQL query engine), and MinIO (S3-compatible storage). This architecture provides a modern lakehouse with version control for data.
+Complete data lakehouse platform combining Apache Spark, Project Nessie (versioned metadata), Apache Iceberg (ACID tables), Dremio (SQL query engine) and MinIO (S3-compatible storage). This architecture provides a modern lakehouse with version control for data.
 
 ## Architecture
 
@@ -18,7 +18,6 @@ Complete data lakehouse platform combining Apache Spark, Project Nessie (version
 - [Docker](https://docs.docker.com/get-docker/) ≥ 24.0
 - [Docker Compose](https://docs.docker.com/compose/install/) ≥ 2.20
 - At least **8 GB RAM** allocated to Docker
-- **16 GB recommended** for optimal cluster performance
 
 ## Quick Start
 
@@ -71,7 +70,7 @@ make up              # Start cluster in background
 make down            # Stop all services
 make restart         # Restart cluster
 make logs            # Follow all service logs (Ctrl+C to exit)
-make reset           # Stop, remove volumes, and restart fresh
+make reset           # Stop, remove volumes and restart fresh
 make status          # Show running container status
 make shell           # Open bash shell in Spark Master
 make clean           # Clean Python cache and logs
@@ -162,7 +161,7 @@ After starting the stack, access Dremio at http://localhost:9047:
 
 3. **Query Iceberg Tables**:
    - Once Nessie source is added, tables created by Spark appear automatically
-   - Click on table to see schema, data, and query history
+   - Click on table to see schema, data and query history
 
 ## Running Spark Jobs
 
@@ -253,7 +252,7 @@ df.writeTo("nessie.main.customers") \
   .mode("overwrite") \
   .create()
 
-print("✅ Table created: nessie.main.customers")
+print("Table created: nessie.main.customers")
 
 spark.stop()
 ```
@@ -345,20 +344,3 @@ make reset
 ### Why Not dbt?
 
 dbt is incompatible with Nessie due to transaction model mismatch. dbt sends sequential metadata operations that conflict with Nessie's optimistic locking. Spark handles Iceberg transactions natively without this issue.
-
-## References
-
-- [Apache Spark Documentation](https://spark.apache.org/docs/)
-- [Project Nessie](https://projectnessie.org/)
-- [Apache Iceberg](https://iceberg.apache.org/)
-- [Dremio Documentation](https://docs.dremio.com/)
-- [MinIO Documentation](https://docs.min.io/)
-
-## License
-
-This project follows the licenses of its components:
-- Apache Spark: Apache 2.0
-- Project Nessie: Apache 2.0
-- Apache Iceberg: Apache 2.0
-- Dremio: Dremio Community License
-- MinIO: AGPL v3
