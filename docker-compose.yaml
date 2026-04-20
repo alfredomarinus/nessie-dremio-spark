@@ -247,11 +247,11 @@ services:
       spark-master:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9047/apiv2/config"]
-      interval: 15s
-      timeout: 5s
-      retries: 3
-      start_period: 30s
+      test: ["CMD", "curl", "-f", "http://localhost:9047/api/v2/config"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+      start_period: 90s
     networks:
       - spark-network
     restart: unless-stopped
